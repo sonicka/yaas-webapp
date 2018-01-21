@@ -1,0 +1,392 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-20 14:02+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: .\templates\all_auctions.html:6
+msgid "All auctions:"
+msgstr "Všetky aukcie"
+
+#: .\templates\all_auctions.html:13
+msgid "No auctions to show"
+msgstr "Žiadne aukcie"
+
+#: .\templates\base.html:34
+msgid "Welcome to YAAS site!"
+msgstr "Vitajte na stránke YAAS!"
+
+#: .\templates\base.html:40
+msgid "Search"
+msgstr "Hľadať"
+
+#: .\templates\base.html:47
+msgid "Currency"
+msgstr "Mena"
+
+#: .\templates\base.html:58
+msgid "Language"
+msgstr "Jazyk"
+
+#: .\templates\base.html:59
+msgid "English"
+msgstr "Angličtina"
+
+#: .\templates\base.html:60
+msgid "Slovak"
+msgstr "Slovenčina"
+
+#: .\templates\base.html:68
+msgid "Home"
+msgstr "Domov"
+
+#: .\templates\base.html:69
+msgid "All auctions"
+msgstr "Všetky aukcie"
+
+#: .\templates\base.html:71
+msgid "Add new auction"
+msgstr "Pridať aukciu"
+
+#: .\templates\base.html:72
+msgid "My Auctions"
+msgstr "Moje aukcie"
+
+#: .\templates\base.html:73
+msgid "Edit account"
+msgstr "Upraviť účet"
+
+#: .\templates\base.html:74
+msgid "Logout"
+msgstr "Odhlásiť"
+
+#: .\templates\base.html:76
+msgid "Login"
+msgstr "Prihlásenie"
+
+#: .\templates\base.html:77
+msgid "Create new user"
+msgstr "Vytvoriť užívateľa"
+
+#: .\templates\create_auction.html:5
+#, fuzzy
+#| msgid "Add auction"
+msgid "Add auction:"
+msgstr "Pridať aukciu:"
+
+#: .\templates\create_auction.html:13
+msgid "Are you sure you want to create the auction?"
+msgstr "Naozaj chcete vytvoriť aukciu?"
+
+#: .\templates\create_auction.html:14
+msgid "Add auction"
+msgstr "Pridať aukciu"
+
+#: .\templates\detail.html:5 .\templates\lock.html:9
+msgid "Auction"
+msgstr "Aukcia"
+
+#: .\templates\detail.html:7
+msgid "Title:"
+msgstr "Názov:"
+
+#: .\templates\detail.html:8
+msgid "Owner:"
+msgstr "Majiteľ:"
+
+#: .\templates\detail.html:9
+msgid "Description:"
+msgstr "Popis:"
+
+#: .\templates\detail.html:10
+msgid "Price:"
+msgstr "Cena:"
+
+#: .\templates\detail.html:11
+msgid "Deadline:"
+msgstr "Dátum ukončenia:"
+
+#: .\templates\detail.html:17
+msgid "Edit auction"
+msgstr "Upraviť aukciu"
+
+#: .\templates\detail.html:23
+#, fuzzy
+#| msgid "Current bid:"
+msgid "Current bid:"
+msgstr "Aktuálna ponuka:"
+
+#: .\templates\detail.html:23
+msgid "user:"
+msgstr "užívateľ:"
+
+#: .\templates\detail.html:29
+msgid "amount"
+msgstr "suma"
+
+#: .\templates\detail.html:30
+msgid "Bid"
+msgstr "Navýšiť"
+
+#: .\templates\detail.html:38
+msgid "Ban auction"
+msgstr "Zablokovať aukciu"
+
+#: .\templates\edit_auction.html:4
+msgid "Edit your auction"
+msgstr "Upraviť aukciu"
+
+#: .\templates\edit_auction.html:8
+#, fuzzy
+#| msgid "Edit auction description:"
+msgid "Edit auction description of:"
+msgstr "Upraviť popis aukcie:"
+
+#: .\templates\edit_auction.html:12
+msgid "Save changes"
+msgstr "Uložiť zmeny"
+
+#: .\templates\edit_user.html:5
+#, fuzzy
+#| msgid "Edit your account information"
+msgid "Edit your account information of user "
+msgstr "Upraviť osobné údaje užívateľa "
+
+#: .\templates\edit_user.html:6
+msgid "Leave blank to keep current value"
+msgstr "Nechajte bez zmeny pre uchovanie aktuálnej hodnoty"
+
+#: .\templates\edit_user.html:9
+msgid "New password"
+msgstr "Nové heslo"
+
+#: .\templates\edit_user.html:12
+msgid "New password again"
+msgstr "Nové heslo znova"
+
+#: .\templates\edit_user.html:15
+msgid "New email"
+msgstr "Nový email"
+
+#: .\templates\edit_user.html:18 .\templates\index.html:23
+#: .\templates\login.html:17 .\templates\registration_form.html:13
+msgid "Submit"
+msgstr "Uložiť"
+
+#: .\templates\index.html:8 .\templates\login.html:8
+msgid "Password or username is incorrect"
+msgstr "Heslo alebo užívateľské meno je nesprávne"
+
+#: .\templates\index.html:13
+msgid ""
+"You are logged in. Now you can take part in auctions or create your own."
+msgstr ""
+"Ste prihlásený. Teraz sa môžete účastniť aukcií alebo vytvoriť vlastnú."
+
+#: .\templates\index.html:19 .\templates\login.html:13
+msgid "Username:"
+msgstr "Užívateľské meno:"
+
+#: .\templates\index.html:21 .\templates\login.html:15
+msgid "Password:"
+msgstr "Heslo:"
+
+#: .\templates\lock.html:7
+#, fuzzy
+#| msgid "Auction locked."
+msgid "Auction locked"
+msgstr "Aukcia je zamknutá."
+
+#: .\templates\lock.html:9
+msgid ""
+"is being updated by the seller. Come back in a few minutes. Sorry for the "
+"inconvenience."
+msgstr ""
+"je upravovaná predajcom. Vráťte sa o niekoľko minút. Ospravedlňujeme sa za "
+"nepríjemnosti."
+
+#: .\templates\registration_form.html:4
+msgid "Create User"
+msgstr "Vytvoriť užívateľa"
+
+#: .\templates\registration_form.html:8
+#, fuzzy
+#| msgid "Create an account"
+msgid "Create an account:"
+msgstr "Vytvoriť účet:"
+
+#: .\yaas\management\commands\resolve_auction.py:26
+msgid "Auction ended."
+msgstr "Aukcia ukončená."
+
+#: .\yaas\management\commands\resolve_auction.py:27
+msgid "Your auction has been successfully resolved."
+msgstr "Vaša aukcia bola úspešne vyhodnotená."
+
+#: .\yaas\management\commands\resolve_auction.py:28
+#, fuzzy
+#| msgid "Winner: {}"
+msgid " Winner: {}"
+msgstr "Víťaz: {}"
+
+#: .\yaas\management\commands\resolve_auction.py:32
+msgid "Auction won."
+msgstr "Vyhrali ste aukciu."
+
+#: .\yaas\management\commands\resolve_auction.py:32
+msgid "You have won an auction you had bid on."
+msgstr "Vyhrali ste aukciu, do ktorej ste sa zapojili."
+
+#: .\yaas\management\commands\resolve_auction.py:39
+msgid "Auction lost."
+msgstr "Prehrali ste aukciu."
+
+#: .\yaas\management\commands\resolve_auction.py:39
+msgid "You have lost an auction you had bid on."
+msgstr "Prehrali ste aukciu, do ktorej ste sa zapojili."
+
+#: .\yaas\views.py:68
+msgid "Your account is created. You can now login."
+msgstr "Účet vytvorený. Môžete sa prihlásiť."
+
+#: .\yaas\views.py:78
+msgid "Login here."
+msgstr "Tu sa môžete prihlásiť."
+
+#: .\yaas\views.py:86
+msgid "You've been logged in."
+msgstr "Boli ste prihlásený."
+
+#: .\yaas\views.py:88
+msgid "Login failed. Please try again."
+msgstr "Prihlásenie zlyhalo. Skúste to znova."
+
+#: .\yaas\views.py:96
+msgid "You've been logged out."
+msgstr "Boli ste odhlásený."
+
+#: .\yaas\views.py:112
+msgid "Passwords don't match."
+msgstr "Heslá sa nezhodujú."
+
+#: .\yaas\views.py:115
+msgid "Your account has been updated."
+msgstr "Váš účet bol aktualizovaný."
+
+#: .\yaas\views.py:117
+msgid "You have to log in before editing profile."
+msgstr "Pred úpravou je nutné sa prihlásiť."
+
+#: .\yaas\views.py:135
+msgid "Deadline must be at least 72 hours in the future."
+msgstr "Dátum ukončenia musí byť aspoň 72 hodín v budúcnosti"
+
+#: .\yaas\views.py:150
+msgid "New auction created."
+msgstr "Nová aukcia vytvorená."
+
+#: .\yaas\views.py:150
+msgid "Your auction has been created successfully."
+msgstr "Vaša aukcia bola úspešne vytvorená."
+
+#: .\yaas\views.py:157 .\yaas\views.py:174
+#, fuzzy
+#| msgid "Auction does not exist."
+msgid "Auction doesn't exist."
+msgstr "Aukcia neexistuje."
+
+#: .\yaas\views.py:163
+msgid "You are not allowed to edit this auction."
+msgstr "Nie ste oprávnený upravovať túto aukciu."
+
+#: .\yaas\views.py:176
+#, fuzzy
+#| msgid "You have to log in before editing profile."
+msgid "You need to log in before editing an auction."
+msgstr "Pred úpravou je nutné sa prihlásiť."
+
+#: .\yaas\views.py:187
+msgid "Auction description updated."
+msgstr "Popis aukcie aktualizovaný."
+
+#: .\yaas\views.py:230
+msgid "Auction does not exist."
+msgstr "Aukcia neexistuje."
+
+#: .\yaas\views.py:249 .\yaas\views.py:331
+msgid "Auction not found."
+msgstr "Aukcia nenájdená."
+
+#: .\yaas\views.py:256
+msgid "Auction is not active."
+msgstr "Aukcia nie je aktívna."
+
+#: .\yaas\views.py:263
+msgid "You cannot bid on your own auction."
+msgstr "Nemôžete navyšovať cenu vlastnej aukcie."
+
+#: .\yaas\views.py:271
+msgid "Bid added successfully."
+msgstr "Cena navýšená."
+
+#: .\yaas\views.py:276
+msgid "You are the highest bidder."
+msgstr "Už ste autorom aktuálne najvyššej sumy."
+
+#: .\yaas\views.py:281 .\yaas\views.py:296
+msgid "Bid must be bigger than current price."
+msgstr "Suma musí byť vyššia ako aktuálna cena."
+
+#: .\yaas\views.py:283
+msgid "Auction losing."
+msgstr "Prehrávate aukciu."
+
+#: .\yaas\views.py:283
+msgid "You've been overbid in auction."
+msgstr "Niekto navýšil cenu aukcie, v ktorej ste vyhrávali."
+
+#: .\yaas\views.py:304
+msgid "You have to log in before bidding."
+msgstr "Pred navyšovaním sa musíte prihlásiť."
+
+#: .\yaas\views.py:310
+msgid "Auction Banned."
+msgstr "Aukcia zablokovaná."
+
+#: .\yaas\views.py:316
+msgid "Your auction has been banned."
+msgstr "Vaša aukcia bola zablokovaná."
+
+#: .\yaas\views.py:325
+msgid "An auction in which you have bid on has been banned."
+msgstr "Aukcia, ktorú ste navyšovali, bola zablokovaná."
+
+#: .\yaas\views.py:334
+#, fuzzy
+#| msgid "You have to be admin for ban an auction."
+msgid "You have to be admin to ban an auction."
+msgstr "Na blokovanie aukcie musíte byť administrátor."
+
+#: .\yaas\views.py:341
+#, fuzzy
+#| msgid "Save changes"
+msgid "Language changed"
+msgstr "Jazyk zmenený"
+
+#: .\yaas\views.py:356
+msgid "View an auction before changing currency."
+msgstr "Zobrazte aukciu pred zmenou meny."

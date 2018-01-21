@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+<h3>{% trans  "Edit your auction" %}</h3>>
+
+{% block content %}
+
+<h3>{% trans "Edit auction description of:" %} {{ title }}</h3>
+    <form action="/savechanges/{{ id }}/" method="post">
+        {% csrf_token %}
+         <p><textarea required=required name="description" cols="30" rows="5">{{ description }}</textarea></p>
+        <input type="submit" value={% trans "Save changes" %}>
+    </form>
+
+{% endblock %}

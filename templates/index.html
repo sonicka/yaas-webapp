@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <p><b>{{ error }}</b></p>
+    {% if form.errors %}
+        <p>{% trans "Password or username is incorrect" %}</p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <br>
+        <p>{% trans "You are logged in. Now you can take part in auctions or create your own." %}</p>
+    {% else %}
+        <br>
+        <br>
+        <form action="/login/" method="post" style="padding: 0px">
+            {% csrf_token %}
+            <label for="username">{% trans "Username:" %}</label>
+            <input type="text" name="username" value="" id="username">
+            <label for="password">{% trans "Password:" %}</label>
+            <input type="password" name="password" value="" id="password">
+            <input type="submit" value={% trans "Submit" %}>
+            <input type="hidden" name="next" value="loginpage">
+        </form>
+    {% endif %}
+    <p><i>{{ msg }}</i></p>
+{% endblock %}

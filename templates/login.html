@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <br>
+    <p><b>{{ error }}</b></p>
+    {% if form.errors %}
+        <p>{% trans "Password or username is incorrect" %}</p>
+    {% endif %}
+    <br>
+    <form action="" method="post" style="padding: 0px">
+        {% csrf_token %}
+        <label for="username">{% trans "Username:" %}</label>
+        <input type="text" name="username" value="" id="username">
+        <label for="password">{% trans "Password:" %}</label>
+        <input type="password" name="password" value="" id="password">
+        <input type="submit" value={% trans "Submit" %}>
+        <input type="hidden" name="next" value="loginpage">
+    </form>
+    <p><i>{{ msg }}</i></p>
+{% endblock %}

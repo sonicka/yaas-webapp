@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h3><b>{% trans "Add auction:" %} </b></h3>
+    {% if error %}
+        <p><b>{{ error }}</b></p>
+    {% endif %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" onclick="return confirm('{% trans 'Are you sure you want to create the auction?' %}')"
+               value={% trans "Add auction" %}/>
+    </form>
+{% endblock %}

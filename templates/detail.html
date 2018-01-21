@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+<html>
+{% block content %}
+    <h3>{% trans "Auction" %}</h3>
+    <ul>
+        <li>{% trans "Title:" %} {{ auction.title }}</li>
+        <li>{% trans "Owner:" %} {{ auction.seller }}</li>
+        <li>{% trans "Description:" %} {{ auction.description }}</li>
+        <li>{% trans "Price:" %} {{ price }} {{ currency }}</li>
+        <li>{% trans "Deadline:" %} {{ auction.deadline }}</li>
+    </ul>
+
+    {% if user == auction.seller and auction.lifecycle == "A" and not auction.is_due %}
+        <form action="/edit/{{ auction.id }}/" method="POST">
+            {% csrf_token %}
+            <input type="submit" value={% trans "Edit auction" %}>
+        </form>
+    {% endif %}
+
+    <p><i>{{ msg }}</i></p>
+    {% if current_bid %}
+        <h4>{% trans "Current bid:" %} {{ current_bid.amount }}, {% trans "user:" %} {{ current_bid.user }}</h4>
+    {% endif %}
+
+    {% if auction.lifecycle == "A" and not auction.is_due %}
+        <form action="/bid/{{ auction.id }}/" method="POST">
+            {% csrf_token %}
+            <input type="search" title='amount' id='amount' name='amount' placeholder={% trans "amount" %}>
+            <input type="submit" value={% trans "Bid" %}>
+        </form>
+    {% endif %}
+
+    {% if user.is_superuser %}
+        {% if auction.lifecycle == "A" %}
+            <form action="/banauction/{{ auction.id }}/" method="POST">
+                {% csrf_token %}
+                <input type="submit" value={% trans "Ban auction" %}>
+            </form>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+</html>

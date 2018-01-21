@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    {% if all_auctions %}
+        <h3>{% trans "All auctions:" %}</h3>
+        <ul>
+            {% for auction in all_auctions %}
+                <li><a href="/auctions/{{ auction.id }}/">{{ auction.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>{% trans "No auctions to show" %}</h3>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <h3>{% trans 'Auction locked' %}</h3>
+
+    <p>{% trans 'Auction' %} {{ auction.title }} {% trans 'is being updated by the seller. Come back in a few minutes. Sorry for the inconvenience.' %}</p>
+
+{% endblock %}

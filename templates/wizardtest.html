@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+<h2> Add auction:</h2>
+{% block content %}
+
+    <p><b>Confirm Auction</b></p>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+    <b>{{ b_title }}</b>
+
+    <form action="/saveauction/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <INPUT TYPE=HIDDEN NAME="a_title" VALUE={{ a_title }}>
+        <INPUT TYPE=HIDDEN NAME="a_description" VALUE={{ a_description }}>
+        <INPUT TYPE=HIDDEN NAME="a_min_price" VALUE={{ a_min_price }}>
+        <INPUT TYPE=HIDDEN NAME="a_deadline" VALUE={{ a_deadline }}>
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h3>{% trans "Edit your account information of user " %} {{ name }}</h3>
+    <p><i>{% trans "Leave blank to keep current value" %}.</i></p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="password" name="password" value="" id="password" placeholder="{% trans "New password" %}">
+        <br>
+        <br>
+        <input type="password" name="password2" value="" id="password2" placeholder="{% trans "New password again" %}">
+        <br>
+        <br>
+        <input type="email" name="email" value="" id="email" placeholder="{% trans "New email" %}">
+        <br>
+        <br>
+        <input type="submit" value={% trans "Submit" %}>
+        <br>
+        <input type="hidden" name="next" value="loginpage">
+    </form>
+    <p>{{ msg }}</p>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% load i18n %}
+
+<html>
+<style type="text/css">
+    body {
+        padding: 0 5em;
+        margin: 0
+    }
+
+    h1 {
+        padding: 1em;
+    }
+
+    h3 {
+        margin-top: 3em
+    }
+
+    p {
+        margin: 1em 0
+    }
+
+    ul {
+        padding-left: 30px;
+    }
+
+    a {
+        display: block;
+        float: left;
+        padding-right: 15px;
+    }
+</style>
+
+<body>
+<h1>{% trans "Welcome to YAAS site!" %}</h1>
+
+<div style="width: 1000px;">
+    <div style="float: left; width: 250px;">
+        <form action="{% url 'search' %}">
+            <input type="text" name="s">
+            <button type="submit">{% trans "Search" %}</button>
+        </form>
+    </div>
+    <div style="float: left; width: 100px;">
+        <form method="post" action="/changecurrency/">
+            {% csrf_token %}
+            <select name="currency" onchange="this.form.submit()">
+                <option value="def">{% trans 'Currency' %}</option>
+                <option value="eur">EUR</option>
+                <option value="usd">USD</option>
+                <option value="czk">CZK</option>
+            </select>
+        </form>
+    </div>
+    <div style="float: left; width: 100px;">
+        <form method="post" action="/translate/">
+            {% csrf_token %}
+            <select name="lang" onchange="this.form.submit()">
+                <option value="def">{% trans 'Language' %}</option>
+                <option value="en">{% trans 'English' %}</option>
+                <option value="sk">{% trans 'Slovak' %}</option>
+            </select>
+        </form>
+    </div>
+    <br style="clear: left;"/>
+</div>
+
+<br>
+<a href="/index/">{% trans "Home" %}</a>
+<a href="/auctions/">{% trans "All auctions" %}</a>
+{% if user.is_authenticated %}
+    <a href="/addauction/">{% trans "Add new auction" %}</a>
+    <a href="/myauctions/">{% trans "My Auctions" %}</a>
+    <a href="/edituser/">{% trans "Edit account" %}</a>
+    <a href="/logout/">{% trans "Logout" %}</a>
+{% else %}
+    <a href="/login/">{% trans "Login" %}</a>
+    <a href="/register/">{% trans "Create new user" %}</a>
+{% endif %}
+
+
+
+{% block content %}
+{% endblock %}
+<br>
+{% if messages %}
+    <p class="messages">
+        {% for message in messages %}
+            <p> {{ message }}</p>
+        {% endfor %}
+    </p>
+{% endif %}
+</body>
+</html>
