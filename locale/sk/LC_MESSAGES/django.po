@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-20 14:02+0100\n"
+"POT-Creation-Date: 2018-01-21 19:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -234,8 +234,10 @@ msgid "Auction ended."
 msgstr "Aukcia ukončená."
 
 #: .\yaas\management\commands\resolve_auction.py:27
-msgid "Your auction has been successfully resolved."
-msgstr "Vaša aukcia bola úspešne vyhodnotená."
+#, fuzzy
+#| msgid "Edit your auction"
+msgid "Your auction"
+msgstr "Upraviť aukciu"
 
 #: .\yaas\management\commands\resolve_auction.py:28
 #, fuzzy
@@ -248,7 +250,9 @@ msgid "Auction won."
 msgstr "Vyhrali ste aukciu."
 
 #: .\yaas\management\commands\resolve_auction.py:32
-msgid "You have won an auction you had bid on."
+#, fuzzy
+#| msgid "You have won an auction you had bid on."
+msgid "You have won this auction: "
 msgstr "Vyhrali ste aukciu, do ktorej ste sa zapojili."
 
 #: .\yaas\management\commands\resolve_auction.py:39
@@ -256,137 +260,175 @@ msgid "Auction lost."
 msgstr "Prehrali ste aukciu."
 
 #: .\yaas\management\commands\resolve_auction.py:39
-msgid "You have lost an auction you had bid on."
+#, fuzzy
+#| msgid "You have lost an auction you had bid on."
+msgid "You have lost this auction: "
 msgstr "Prehrali ste aukciu, do ktorej ste sa zapojili."
 
-#: .\yaas\views.py:68
+#: .\yaas\views.py:67
 msgid "Your account is created. You can now login."
 msgstr "Účet vytvorený. Môžete sa prihlásiť."
 
-#: .\yaas\views.py:78
+#: .\yaas\views.py:77
 msgid "Login here."
 msgstr "Tu sa môžete prihlásiť."
 
-#: .\yaas\views.py:86
+#: .\yaas\views.py:85
 msgid "You've been logged in."
 msgstr "Boli ste prihlásený."
 
-#: .\yaas\views.py:88
+#: .\yaas\views.py:87
 msgid "Login failed. Please try again."
 msgstr "Prihlásenie zlyhalo. Skúste to znova."
 
-#: .\yaas\views.py:96
+#: .\yaas\views.py:95
 msgid "You've been logged out."
 msgstr "Boli ste odhlásený."
 
-#: .\yaas\views.py:112
+#: .\yaas\views.py:111
 msgid "Passwords don't match."
 msgstr "Heslá sa nezhodujú."
 
-#: .\yaas\views.py:115
+#: .\yaas\views.py:114
 msgid "Your account has been updated."
 msgstr "Váš účet bol aktualizovaný."
 
-#: .\yaas\views.py:117
+#: .\yaas\views.py:116
 msgid "You have to log in before editing profile."
 msgstr "Pred úpravou je nutné sa prihlásiť."
 
-#: .\yaas\views.py:135
+#: .\yaas\views.py:125
+msgid "add title"
+msgstr "zadajte názov"
+
+#: .\yaas\views.py:126
+#, fuzzy
+#| msgid "Description:"
+msgid "add description"
+msgstr "zadajte popis"
+
+#: .\yaas\views.py:127
+msgid "add price in €"
+msgstr "zadajte cenu v €"
+
+#: .\yaas\views.py:128
+msgid "mm/dd/yyyy"
+msgstr "dd.mm.rrrr"
+
+#: .\yaas\views.py:134
 msgid "Deadline must be at least 72 hours in the future."
 msgstr "Dátum ukončenia musí byť aspoň 72 hodín v budúcnosti"
 
-#: .\yaas\views.py:150
+#: .\yaas\views.py:155
 msgid "New auction created."
 msgstr "Nová aukcia vytvorená."
 
-#: .\yaas\views.py:150
+#: .\yaas\views.py:155
 msgid "Your auction has been created successfully."
 msgstr "Vaša aukcia bola úspešne vytvorená."
 
-#: .\yaas\views.py:157 .\yaas\views.py:174
+#: .\yaas\views.py:162 .\yaas\views.py:180
 #, fuzzy
 #| msgid "Auction does not exist."
 msgid "Auction doesn't exist."
 msgstr "Aukcia neexistuje."
 
-#: .\yaas\views.py:163
+#: .\yaas\views.py:169
 msgid "You are not allowed to edit this auction."
 msgstr "Nie ste oprávnený upravovať túto aukciu."
 
-#: .\yaas\views.py:176
+#: .\yaas\views.py:183
 #, fuzzy
 #| msgid "You have to log in before editing profile."
 msgid "You need to log in before editing an auction."
 msgstr "Pred úpravou je nutné sa prihlásiť."
 
-#: .\yaas\views.py:187
+#: .\yaas\views.py:195
 msgid "Auction description updated."
 msgstr "Popis aukcie aktualizovaný."
 
-#: .\yaas\views.py:230
+#: .\yaas\views.py:238
 msgid "Auction does not exist."
 msgstr "Aukcia neexistuje."
 
-#: .\yaas\views.py:249 .\yaas\views.py:331
+#: .\yaas\views.py:256 .\yaas\views.py:341
 msgid "Auction not found."
 msgstr "Aukcia nenájdená."
 
-#: .\yaas\views.py:256
+#: .\yaas\views.py:263
 msgid "Auction is not active."
 msgstr "Aukcia nie je aktívna."
 
-#: .\yaas\views.py:263
+#: .\yaas\views.py:273
 msgid "You cannot bid on your own auction."
 msgstr "Nemôžete navyšovať cenu vlastnej aukcie."
 
-#: .\yaas\views.py:271
+#: .\yaas\views.py:281
 msgid "Bid added successfully."
 msgstr "Cena navýšená."
 
-#: .\yaas\views.py:276
+#: .\yaas\views.py:286
 msgid "You are the highest bidder."
 msgstr "Už ste autorom aktuálne najvyššej sumy."
 
-#: .\yaas\views.py:281 .\yaas\views.py:296
+#: .\yaas\views.py:291 .\yaas\views.py:306
 msgid "Bid must be bigger than current price."
 msgstr "Suma musí byť vyššia ako aktuálna cena."
 
-#: .\yaas\views.py:283
+#: .\yaas\views.py:293
 msgid "Auction losing."
 msgstr "Prehrávate aukciu."
 
-#: .\yaas\views.py:283
+#: .\yaas\views.py:293
 msgid "You've been overbid in auction."
 msgstr "Niekto navýšil cenu aukcie, v ktorej ste vyhrávali."
 
-#: .\yaas\views.py:304
+#: .\yaas\views.py:314
 msgid "You have to log in before bidding."
 msgstr "Pred navyšovaním sa musíte prihlásiť."
 
-#: .\yaas\views.py:310
+#: .\yaas\views.py:320
 msgid "Auction Banned."
 msgstr "Aukcia zablokovaná."
 
-#: .\yaas\views.py:316
+#: .\yaas\views.py:326
 msgid "Your auction has been banned."
 msgstr "Vaša aukcia bola zablokovaná."
 
-#: .\yaas\views.py:325
+#: .\yaas\views.py:335
 msgid "An auction in which you have bid on has been banned."
 msgstr "Aukcia, ktorú ste navyšovali, bola zablokovaná."
 
-#: .\yaas\views.py:334
+#: .\yaas\views.py:344
 #, fuzzy
 #| msgid "You have to be admin for ban an auction."
 msgid "You have to be admin to ban an auction."
 msgstr "Na blokovanie aukcie musíte byť administrátor."
 
-#: .\yaas\views.py:341
+#: .\yaas\views.py:351
 #, fuzzy
 #| msgid "Save changes"
 msgid "Language changed"
 msgstr "Jazyk zmenený"
 
-#: .\yaas\views.py:356
+#: .\yaas\views.py:367
 msgid "View an auction before changing currency."
 msgstr "Zobrazte aukciu pred zmenou meny."
+
+#, fuzzy
+#~| msgid "Title:"
+#~ msgid "title"
+#~ msgstr "Názov:"
+
+#, fuzzy
+#~| msgid "Description:"
+#~ msgid "description"
+#~ msgstr "Popis:"
+
+#, fuzzy
+#~| msgid "Deadline:"
+#~ msgid "deadline"
+#~ msgstr "Dátum ukončenia:"
+
+#~ msgid "Your auction has been successfully resolved."
+#~ msgstr "Vaša aukcia bola úspešne vyhodnotená."

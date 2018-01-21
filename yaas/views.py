@@ -120,20 +120,13 @@ def edit_user(request):
 class AddAuctionForm(ModelForm):
     class Meta(object):
         model = Auction
-        fields = [_('title'), _('description'), _('minimum_price'), _('deadline')]
+        fields = ['title', 'description', 'minimum_price', 'deadline']
         widgets = {
             'title': forms.TextInput(attrs={'required': True, 'placeholder': _('add title')}),
             'description': forms.TextInput(attrs={'required': True, 'placeholder': _('add description')}),
             'minimum_price': forms.NumberInput(attrs={'required': True, 'placeholder': _('add price in €')}),
-            'deadline': forms.DateTimeInput(attrs={'required': True, 'placeholder': _('mm/dd/yyyy')}),
+            'deadline': forms.TextInput(attrs={'required': True, 'placeholder': _('mm/dd/yyyy')}),
         }
-
-    # shit ain't workin TODO
-    def clean_title(self):
-        title = self.cleaned_data['title']
-        if title is None:
-            raise ValidationError({'title': _('Dojebals to')})
-        return title
 
     def clean_deadline(self):
         deadline = self.cleaned_data['deadline']
@@ -147,19 +140,15 @@ class AddAuction(LoginRequiredMixin, CreateView):
     form_class = AddAuctionForm
     template_name = "create_auction.html"
 
-    form_invalid_message = 'Please correct the errors below.'
-    # todo
-    """ def form_invalid(self, form): 
-        messages.error(self.request, self.form_invalid_message)
-        return HttpResponseRedirect("/addauction/")"""
-
     def form_valid(self, form):
         form.instance.seller = self.request.user
         super().form_valid(form)
         a_id = form.instance.id
         u = self.request.build_absolute_uri  # todo či?
         print(u)
-        send_mail(_('New auction created.'), _("Your auction has been created successfully." + str(u)),
+        messages.add_message(self.request, messages.INFO, str(u))
+
+        send_mail(_('New auction created.'), _("Your auction has been created successfully. " + str(u)),
                   'no_reply@yaas.com', [self.request.user.email], fail_silently=False)
         return HttpResponseRedirect("/auctions/" + str(a_id) + "/")
 
@@ -256,69 +245,73 @@ def search(request):
 
 def bid(request, id):
     auction = Auction.objects.get(id=id)
-    if request.user.is_authenticated:
-        if request.method == 'POST':
-            amount = request.POST['amount']
-            if not auction:
-                return render("detail.html", {'msg': _("Auction not found.")})
+    if auction.lock and auction.seller != request.user:
+        return render(request, "lock.html", {'auction': auction})
+    auction.lock = True
+    auction.lock_timestamp = now()
+    auction.save()
+    try:
+        if request.user.is_authenticated:
+            if request.method == 'POST':
+                amount = request.POST['amount']
+                if not auction:
+                    return render("detail.html", {'msg': _("Auction not found.")})
 
-            if auction.lock and auction.seller != request.user:
-                return render(request, "lock.html", {'auction': auction})
+                if auction.lifecycle != 'A' or auction.is_due():
+                    return render(request, "detail.html", {'auction': auction, 'currency': "€",
+                                                           'msg': _("Auction is not active.")})
 
-            if auction.lifecycle != 'A' or auction.is_due():
-                return render(request, "detail.html", {'auction': auction, 'currency': "€",
-                                                       'msg': _("Auction is not active.")})
-
-            auction.lock = True
-            auction.lock_timestamp = now() # todo
-
-            previous_winning_bid = Bid.objects.filter(status='W', auction=auction)
-            if previous_winning_bid:
-                previous_winning_bid = Bid.objects.filter(status='W', auction=auction).get()
-
-            if request.user == auction.seller:
-                msg = _("You cannot bid on your own auction.")
+                previous_winning_bid = Bid.objects.filter(status='W', auction=auction)
                 if previous_winning_bid:
-                    return render(request, "detail.html", {'auction': auction, 'price': previous_winning_bid.amount,
-                                                           'currency': "€", 'msg': msg})
-                else:
-                    return render(request, "detail.html", {'auction': auction, 'price': auction.minimum_price,
-                                                           'currency': "€", 'msg': msg})
+                    previous_winning_bid = Bid.objects.filter(status='W', auction=auction).get()
 
-            msg2 = _("Bid added successfully.")
-            if previous_winning_bid:
-                if previous_winning_bid.user == request.user:
-                    return render(request, "detail.html", {'auction': auction, 'current_bid': previous_winning_bid,
-                                                           'price': previous_winning_bid.amount, 'currency': "€",
-                                                           'msg': _("You are the highest bidder.")})
+                if request.user == auction.seller:
+                    msg = _("You cannot bid on your own auction.")
+                    if previous_winning_bid:
+                        return render(request, "detail.html", {'auction': auction, 'price': previous_winning_bid.amount,
+                                                               'currency': "€", 'msg': msg})
+                    else:
+                        return render(request, "detail.html", {'auction': auction, 'price': auction.minimum_price,
+                                                               'currency': "€", 'msg': msg})
 
-                if float(amount) - previous_winning_bid.amount < 0.01:
-                    return render(request, "detail.html", {'auction': auction, 'current_bid': previous_winning_bid,
-                                                           'price': previous_winning_bid.amount, 'currency': "€",
-                                                           'msg': _("Bid must be bigger than current price.")})
+                msg2 = _("Bid added successfully.")
+                if previous_winning_bid:
+                    if previous_winning_bid.user == request.user:
+                        return render(request, "detail.html", {'auction': auction, 'current_bid': previous_winning_bid,
+                                                               'price': previous_winning_bid.amount, 'currency': "€",
+                                                               'msg': _("You are the highest bidder.")})
+
+                    if float(amount) - previous_winning_bid.amount < 0.01:
+                        return render(request, "detail.html", {'auction': auction, 'current_bid': previous_winning_bid,
+                                                               'price': previous_winning_bid.amount, 'currency': "€",
+                                                               'msg': _("Bid must be bigger than current price.")})
+                    else:
+                        send_mail(_('Auction losing.'), _("You've been overbid in auction."), 'no_reply@yaas.com',
+                                  [previous_winning_bid.user.email], fail_silently=False)
+                        previous_winning_bid.status = 'L'
+                        previous_winning_bid.save()
+                        new_bid = Bid(user=request.user, amount=float(amount), auction=auction, status='W')
+                        new_bid.save()
+                        return render(request, "detail.html", {'auction': auction, 'current_bid': new_bid,
+                                                               'price': new_bid.amount, 'currency': "€",
+                                                               'msg': msg2})
                 else:
-                    send_mail(_('Auction losing.'), _("You've been overbid in auction."), 'no_reply@yaas.com',
-                              [previous_winning_bid.user.email], fail_silently=False)
-                    previous_winning_bid.status = 'L'
-                    previous_winning_bid.save()
-                    new_bid = Bid(user=request.user, amount=float(amount), auction=auction, status='W')
-                    new_bid.save()
-                    return render(request, "detail.html", {'auction': auction, 'current_bid': new_bid,
-                                                           'price': new_bid.amount, 'currency': "€",
-                                                           'msg': msg2})
-            else:
-                if auction.minimum_price > float(amount) or (float(amount) - auction.minimum_price < 0.01):
-                    return render(request, "detail.html", {'auction': auction, 'price': auction.minimum_price,
-                                                           'currency': "€",
-                                                           'msg': _("Bid must be bigger than current price.")})
-                else:
-                    new_bid = Bid(user=request.user, amount=float(amount), auction=auction, status='W')
-                    new_bid.save()
-                    return render(request, "detail.html", {'auction': auction, 'current_bid': new_bid,
-                                                           'price': new_bid.amount, 'currency': "€",
-                                                           'msg': msg2})
-    else:
-        return render(request, "detail.html", {'auction': auction, 'msg': _("You have to log in before bidding.")})
+                    if auction.minimum_price > float(amount) or (float(amount) - auction.minimum_price < 0.01):
+                        return render(request, "detail.html", {'auction': auction, 'price': auction.minimum_price,
+                                                               'currency': "€",
+                                                               'msg': _("Bid must be bigger than current price.")})
+                    else:
+                        new_bid = Bid(user=request.user, amount=float(amount), auction=auction, status='W')
+                        new_bid.save()
+                        return render(request, "detail.html", {'auction': auction, 'current_bid': new_bid,
+                                                               'price': new_bid.amount, 'currency': "€",
+                                                               'msg': msg2})
+        else:
+            return render(request, "detail.html", {'auction': auction, 'msg': _("You have to log in before bidding.")})
+    finally:
+        auction.lock = False
+        auction.lock_timestamp = None
+        auction.save()
 
 
 def ban_auction(request, id):
