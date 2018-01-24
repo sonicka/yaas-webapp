@@ -1,6 +1,5 @@
 {% load i18n %}
 
-<html>
 <style type="text/css">
     body {
         padding: 0 5em;
@@ -30,7 +29,6 @@
     }
 </style>
 
-<body>
 <h1>{% trans "Welcome to YAAS site!" %}</h1>
 
 <div style="width: 1000px;">
@@ -69,15 +67,13 @@
 <a href="/auctions/">{% trans "All auctions" %}</a>
 {% if user.is_authenticated %}
     <a href="/addauction/">{% trans "Add new auction" %}</a>
-    <a href="/myauctions/">{% trans "My Auctions" %}</a>
+    <a href="/myauctions/">{% trans "My auctions" %}</a>
     <a href="/edituser/">{% trans "Edit account" %}</a>
     <a href="/logout/">{% trans "Logout" %}</a>
 {% else %}
     <a href="/login/">{% trans "Login" %}</a>
     <a href="/register/">{% trans "Create new user" %}</a>
 {% endif %}
-
-
 
 {% block content %}
 {% endblock %}
@@ -89,5 +85,3 @@
         {% endfor %}
     </p>
 {% endif %}
-</body>
-</html>

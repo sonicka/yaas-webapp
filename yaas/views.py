@@ -1,7 +1,6 @@
 import requests
 from datetime import timedelta
 from django import forms
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
@@ -13,14 +12,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth import authenticate, login, logout
 from django.utils import translation
-
 from django.utils.timezone import now
 from django.views.generic import View
 from django.views.generic.edit import CreateView
 from rest_framework import viewsets
 from rest_framework.renderers import JSONRenderer
-from django.utils.translation import gettext as _
-
+from django.utils.translation import ugettext_lazy as _
 from serializers import AuctionSerializer
 from .forms import UserForm
 from yaas.models import Auction, Bid
@@ -144,12 +141,10 @@ class AddAuction(LoginRequiredMixin, CreateView):
         form.instance.seller = self.request.user
         super().form_valid(form)
         a_id = form.instance.id
-        u = self.request.build_absolute_uri  # todo či?
-        print(u)
-        messages.add_message(self.request, messages.INFO, str(u))
-
-        send_mail(_('New auction created.'), _("Your auction has been created successfully. " + str(u)),
-                  'no_reply@yaas.com', [self.request.user.email], fail_silently=False)
+        u = self.request.build_absolute_uri(reverse('detail', kwargs={'auction_id': a_id}))
+        m = send_mail(_('New auction created.'), _("Your auction has been created successfully. " + u),
+                      'no_reply@yaas.com', [self.request.user.email], fail_silently=False)
+        print(m)
         return HttpResponseRedirect("/auctions/" + str(a_id) + "/")
 
 
@@ -358,8 +353,12 @@ def change_currency(request):
         request.session['currency'] = currency
         exchange_rate = get_exchange_rate(currency)
         request.session['rate'] = exchange_rate
-        if '/auctions/' or '/savechanges/' in request.META['HTTP_REFERER'] and not request.META[
-            'HTTP_REFERER'].endswith('/auctions/'):
+
+        uri1 = request.build_absolute_uri('/auctions/%d/' % int(request.session['currentauction']))
+        uri2 = request.build_absolute_uri('/savechanges/%d/' % int(request.session['currentauction']))
+        ref = request.META['HTTP_REFERER']
+
+        if str(uri1) == ref or str(uri2) == ref:
             return HttpResponseRedirect('/auctions/%d/' % int(request.session['currentauction']))
         else:
             request.session['currency'] = "eur"
@@ -378,9 +377,6 @@ def get_exchange_rate(currency):
         return (1 / eur) * czk
     else:
         return 1
-
-
-""""""" API methods """""""
 
 
 class AuctionViewSet(viewsets.ModelViewSet):

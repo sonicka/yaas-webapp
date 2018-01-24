@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-    <h3>{% trans "Edit your account information of user " %} {{ name }}</h3>
+    <h3>{% trans "Edit account information of user " %} {{ name }}</h3>
     <p><i>{% trans "Leave blank to keep current value" %}.</i></p>
     <form action="" method="post">
         {% csrf_token %}
