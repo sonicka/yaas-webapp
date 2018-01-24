@@ -323,7 +323,7 @@ msgstr "Dátum ukončenia musí byť aspoň 72 hodín v budúcnosti"
 
 #: .\yaas\views.py:149
 msgid "New auction created."
-msgstr "Nová aukcia vytvorená."
+msgstr "Nova aukcia vytvorena."
 
 #: .\yaas\views.py:149
 msgid "Your auction has been created successfully. "
@@ -387,7 +387,7 @@ msgstr "Pred navyšovaním sa musíte prihlásiť."
 
 #: .\yaas\views.py:319
 msgid "Auction Banned."
-msgstr "Aukcia zablokovaná."
+msgstr "Aukcia zablokovana."
 
 #: .\yaas\views.py:325
 msgid "Your auction has been banned."

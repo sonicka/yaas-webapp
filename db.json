@@ -1,0 +1,739 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 25,
+    "fields": {
+      "app_label": "yaas",
+      "model": "auction"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 26,
+    "fields": {
+      "app_label": "yaas",
+      "model": "bid"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 27,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 28,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 29,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 30,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 31,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 32,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "jud6ijrggckstaxkg5fcvxt2xbq3u69t",
+    "fields": {
+      "session_data": "MTU0NmRiMzNmNDczOTkyYzFjYzgzMjE3ZDYxNmI5NTMwMDkyOGZhYTp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYWJmYTRlODYwMjg1ZjY5OTE4YjE2NGJmYzEwZTI3NDRkZWYxMzZlNyJ9",
+      "expire_date": "2018-02-07T19:07:12.709Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "q0cbk0eb70sl4eindyzswh56ihxohx2q",
+    "fields": {
+      "session_data": "MWI0MTcxZjVjMjNkMjk3ZmQ0NDFjYTNiNmU5Yjk5ZTVlOTgzZTQyZjp7Il9sYW5ndWFnZSI6ImVuIiwiX2F1dGhfdXNlcl9pZCI6IjI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYzQ0YTI5YjVlMTk5NGUwOTY3ZDJiOTMzODJlOGJmYWEwNzc4ODc1IiwiY3VycmVudGF1Y3Rpb24iOiI4MyIsImN1cnJlbmN5IjoiZXVyIn0=",
+      "expire_date": "2018-02-07T19:43:24.748Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "v4hcxe7apd51y77giksjkvxe4pi74m0i",
+    "fields": {
+      "session_data": "OTEzMDE3MTQwMDc5NDhjMGM3MDYzYTUxMzdmZjE3ZTJlYjQzN2U1Mjp7Il9hdXRoX3VzZXJfaWQiOiIyMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiODY5NDAwMWMyNjNjNjAwZTE0ZjY0YzBlODZmMTAwMThjMDcyMzgzZCJ9",
+      "expire_date": "2018-02-07T17:21:36.118Z"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+      "name": "Can add auction",
+      "content_type": 25,
+      "codename": "add_auction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+      "name": "Can change auction",
+      "content_type": 25,
+      "codename": "change_auction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+      "name": "Can delete auction",
+      "content_type": 25,
+      "codename": "delete_auction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+      "name": "Can add bid",
+      "content_type": 26,
+      "codename": "add_bid"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+      "name": "Can change bid",
+      "content_type": 26,
+      "codename": "change_bid"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+      "name": "Can delete bid",
+      "content_type": 26,
+      "codename": "delete_bid"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 27,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 27,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 27,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 28,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 28,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 28,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 29,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 29,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 29,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 30,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 30,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 30,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 31,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 31,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 31,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 32,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 32,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 32,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 23,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$FdL8bQHr7gZC$YcrcyFNncam2jk32nK/KEpL1Y8vEjEzgMcVeZwcvS7I=",
+      "last_login": "2018-01-24T19:12:05.720Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@yaas.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2018-01-24T17:16:29.617Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 24,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$R289JRMSRreO$1pzgkYnhZk4fhoRfsKFJrQiPNU1iFZFjJLNIc6gZGUA=",
+      "last_login": "2018-01-24T19:06:03.371Z",
+      "is_superuser": false,
+      "username": "user1",
+      "first_name": "",
+      "last_name": "",
+      "email": "user1@umail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-01-24T18:28:44.244Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 25,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$T75fKeBjh8j5$2hfnSIXuxmAU7yuqrDOvp1NBmoNGR7AmSzDC/Mc8pBE=",
+      "last_login": "2018-01-24T19:42:13.330Z",
+      "is_superuser": false,
+      "username": "user2",
+      "first_name": "",
+      "last_name": "",
+      "email": "user2@imail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-01-24T18:33:30.815Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 26,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$dkpomwIqjEaf$lUSYEWrKiyzq8tMnRW50a1BodtT+T37u0l67idej9so=",
+      "last_login": "2018-01-24T19:42:45.803Z",
+      "is_superuser": false,
+      "username": "user3",
+      "first_name": "",
+      "last_name": "",
+      "email": "user3@pmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-01-24T19:01:50.151Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+      "action_time": "2018-01-24T19:07:52.801Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"deadline\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+      "action_time": "2018-01-24T19:09:01.442Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+      "action_time": "2018-01-24T19:09:25.668Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"deadline\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+      "action_time": "2018-01-24T19:09:53.419Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"deadline\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+      "action_time": "2018-01-24T19:11:59.021Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"deadline\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+      "action_time": "2018-01-24T19:12:15.248Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+      "action_time": "2018-01-24T19:12:25.342Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"deadline\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+      "action_time": "2018-01-24T19:15:54.455Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+      "action_time": "2018-01-24T19:19:00.759Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"title\", \"description\", \"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+      "action_time": "2018-01-24T19:24:29.820Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "83",
+      "object_repr": "Auction object (83)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"title\", \"description\", \"deadline\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+      "action_time": "2018-01-24T19:25:16.861Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "84",
+      "object_repr": "Auction object (84)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"title\", \"description\", \"deadline\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+      "action_time": "2018-01-24T19:26:22.777Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"title\", \"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+      "action_time": "2018-01-24T19:26:53.346Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"title\", \"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+      "action_time": "2018-01-24T19:39:43.493Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "87",
+      "object_repr": "Auction object (87)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+      "action_time": "2018-01-24T19:40:05.270Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+      "action_time": "2018-01-24T19:40:24.923Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"title\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+      "action_time": "2018-01-24T19:40:37.695Z",
+      "user": 23,
+      "content_type": 25,
+      "object_id": "85",
+      "object_repr": "Auction object (85)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"title\", \"lifecycle\"]}}]"
+    }
+  },
+  {
+    "model": "yaas.bid",
+    "pk": 31,
+    "fields": {
+      "auction": 82,
+      "user": 25,
+      "amount": 12.0,
+      "status": "L"
+    }
+  },
+  {
+    "model": "yaas.bid",
+    "pk": 32,
+    "fields": {
+      "auction": 83,
+      "user": 24,
+      "amount": 20.0,
+      "status": "L"
+    }
+  },
+  {
+    "model": "yaas.bid",
+    "pk": 33,
+    "fields": {
+      "auction": 83,
+      "user": 25,
+      "amount": 30.0,
+      "status": "W"
+    }
+  },
+  {
+    "model": "yaas.bid",
+    "pk": 34,
+    "fields": {
+      "auction": 85,
+      "user": 25,
+      "amount": 30.0,
+      "status": "L"
+    }
+  },
+  {
+    "model": "yaas.bid",
+    "pk": 35,
+    "fields": {
+      "auction": 85,
+      "user": 26,
+      "amount": 35.0,
+      "status": "L"
+    }
+  },
+  {
+    "model": "yaas.bid",
+    "pk": 36,
+    "fields": {
+      "auction": 85,
+      "user": 23,
+      "amount": 40.0,
+      "status": "W"
+    }
+  },
+  {
+    "model": "yaas.bid",
+    "pk": 37,
+    "fields": {
+      "auction": 82,
+      "user": 26,
+      "amount": 12.02,
+      "status": "W"
+    }
+  },
+  {
+    "model": "yaas.auction",
+    "pk": 82,
+    "fields": {
+      "seller": 24,
+      "title": "auction1",
+      "description": "description1",
+      "minimum_price": 10.0,
+      "deadline": "2018-01-28T00:00:00Z",
+      "lifecycle": "A",
+      "lock": false,
+      "lock_timestamp": null
+    }
+  },
+  {
+    "model": "yaas.auction",
+    "pk": 83,
+    "fields": {
+      "seller": 26,
+      "title": "active auction",
+      "description": "active",
+      "minimum_price": 15.0,
+      "deadline": "2018-03-30T00:00:00Z",
+      "lifecycle": "A",
+      "lock": false,
+      "lock_timestamp": null
+    }
+  },
+  {
+    "model": "yaas.auction",
+    "pk": 84,
+    "fields": {
+      "seller": 25,
+      "title": "resolved",
+      "description": "resolved",
+      "minimum_price": 15.0,
+      "deadline": "2018-01-24T00:00:00Z",
+      "lifecycle": "X",
+      "lock": false,
+      "lock_timestamp": null
+    }
+  },
+  {
+    "model": "yaas.auction",
+    "pk": 85,
+    "fields": {
+      "seller": 24,
+      "title": "due auction",
+      "description": "due",
+      "minimum_price": 20.0,
+      "deadline": "2018-01-24T00:00:00Z",
+      "lifecycle": "A",
+      "lock": false,
+      "lock_timestamp": null
+    }
+  },
+  {
+    "model": "yaas.auction",
+    "pk": 86,
+    "fields": {
+      "seller": 24,
+      "title": "banned",
+      "description": "banned",
+      "minimum_price": 30.0,
+      "deadline": "2018-10-10T00:00:00Z",
+      "lifecycle": "B",
+      "lock": false,
+      "lock_timestamp": null
+    }
+  }
+]

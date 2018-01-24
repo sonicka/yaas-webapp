@@ -239,7 +239,11 @@ def search(request):
 
 
 def bid(request, id):
-    auction = Auction.objects.get(id=id)
+    auction = Auction.objects.filter(id=id)
+    if auction:
+        auction = Auction.objects.get(id=id)
+    else:
+        return render(request, "index.html", {'msg': _("Auction doesn't exist.")})
     if auction.lock and auction.seller != request.user:
         return render(request, "lock.html", {'auction': auction})
     auction.lock = True
@@ -314,10 +318,9 @@ def ban_auction(request, id):
         auction = Auction.objects.filter(id=id)
         banmsg = _('Auction Banned.')
         if auction:
-            with transaction.atomic():
-                auction = Auction.objects.get(id=id)
-                auction.lifecycle = 'B'
-                auction.save()
+            auction = Auction.objects.get(id=id)
+            auction.lifecycle = 'B'
+            auction.save()
             send_mail(banmsg, _("Your auction has been banned."), 'no_reply@yaas.com', [auction.seller.email],
                       fail_silently=False)
             mails = []
@@ -354,16 +357,18 @@ def change_currency(request):
         exchange_rate = get_exchange_rate(currency)
         request.session['rate'] = exchange_rate
 
-        uri1 = request.build_absolute_uri('/auctions/%d/' % int(request.session['currentauction']))
-        uri2 = request.build_absolute_uri('/savechanges/%d/' % int(request.session['currentauction']))
-        ref = request.META['HTTP_REFERER']
+        if request.session['currentauction']:
+            uri1 = request.build_absolute_uri('/auctions/%d/' % int(request.session['currentauction']))
+            uri2 = request.build_absolute_uri('/savechanges/%d/' % int(request.session['currentauction']))
+            uri3 = request.build_absolute_uri('/bid/%d/' % int(request.session['currentauction']))
+            ref = request.META['HTTP_REFERER']
 
-        if str(uri1) == ref or str(uri2) == ref:
-            return HttpResponseRedirect('/auctions/%d/' % int(request.session['currentauction']))
-        else:
-            request.session['currency'] = "eur"
-            request.session['rate'] = get_exchange_rate("eur")
-            return render(request, "index.html", {'msg': _("View an auction before changing currency.")})
+            if str(uri1) == ref or str(uri2) == ref or str(uri3) == ref:
+                return HttpResponseRedirect('/auctions/%d/' % int(request.session['currentauction']))
+
+        request.session['currency'] = "eur"
+        request.session['rate'] = 1
+        return render(request, "index.html", {'msg': _("View an auction before changing currency.")})
 
 
 def get_exchange_rate(currency):
@@ -371,10 +376,10 @@ def get_exchange_rate(currency):
     json_data = requests.get(url).json()
     eur = json_data["rates"]["EUR"]
     if currency == "usd":
-        return eur
+        return 1/eur
     elif currency == "czk":
         czk = json_data["rates"]["CZK"]
-        return (1 / eur) * czk
+        return (1/eur)*czk
     else:
         return 1
 

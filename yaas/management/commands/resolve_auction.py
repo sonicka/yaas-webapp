@@ -14,10 +14,13 @@ class Command(BaseCommand):
             if auction.is_due():
                 winner = None
                 others = []
+                mails = []
                 if Bid.objects.filter(status='W', auction=auction):
                     winner = Bid.objects.filter(status='W', auction=auction).get().user
                     if Bid.objects.filter(status='L', auction=auction):
                         others = Bid.objects.filter(status='L', auction=auction)
+                    for bid in others:
+                        mails.append(bid.user)
                 auction.lifecycle = 'X'
                 auction.save()
 
@@ -35,4 +38,4 @@ class Command(BaseCommand):
                     mails.append(bidder.user.email)
 
                 send_mail(_('Auction lost.'), _('You have lost this auction: ') + str(auction.title),
-                          'no_reply@yaas.com', others, fail_silently=False)
+                          'no_reply@yaas.com', mails, fail_silently=False)
